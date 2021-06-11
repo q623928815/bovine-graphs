@@ -39,7 +39,7 @@ Step by step (manual) instruction to construct a graph from collection of genome
     # without the need for loading the sequences in nodes
     
     # extract node information 
-    awk '$1~/S/ { splt($5,chr,":"); split($6,pos,":"); split($7,arr,":");
+    awk '$1~/S/ { split($5,chr,":"); split($6,pos,":"); split($7,arr,":");
                 print $2,length($3),chr[3],pos[3],arr[3] }' {graph.gfa} > {graph_len.tsv}
     
     # extract edge information
@@ -51,7 +51,7 @@ Step by step (manual) instruction to construct a graph from collection of genome
     
     ```sh
     
-    minigraph -t {threads} --cov -x asm {graph.gfa} {assembly1.fa} > {graph_use_assembly1.gfa}
+    minigraph -t {threads} --cov -x asm {graph.gfa} {assembly1.fa} > {graph_use_assembly1.gaf}
     
     ```
 
